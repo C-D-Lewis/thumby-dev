@@ -1,17 +1,20 @@
 import thumby
 import sys
 import time # has a funny way of playing jokes on you while you're waiting for what you think you know will happen next
-TRACK = __import__('/Games/MIDIPlayer/track').TRACK
-PITCH_TABLE = __import__('/Games/MIDIPlayer/pitch_table').PITCH_TABLE
 
 WIDTH = thumby.display.width
 HEIGHT = thumby.display.height
 WHITE = 1
+
+# Music to play
+TRACK = __import__('/Games/MIDIPlayer/track').TRACK
+PITCH_TABLE = __import__('/Games/MIDIPlayer/pitch_table').PITCH_TABLE
 SONG_NAME = 'Still Alive'
 
 bar_progress = 0
 note_index = 0
 start_time = time.ticks_ms()
+total_notes = len(TRACK)
 
 #
 # Setup game
@@ -28,7 +31,6 @@ def update():
     global note_index
     global last_note_start
     
-    total_notes = len(TRACK)
     if (note_index == total_notes):
         print('End of notes')
         time.sleep(2)
@@ -54,7 +56,15 @@ def update():
 #
 def draw():
     thumby.display.fill(0)
-    thumby.display.drawText(SONG_NAME, 5, 16, WHITE)
+    
+    # Song name
+    thumby.display.drawText(SONG_NAME, 2, 5, WHITE)
+    
+    # Note progrss
+    SONG_PROGRESS = "" + str(note_index) + "/" + str(total_notes)
+    thumby.display.drawText(SONG_PROGRESS, 2, 15, WHITE)
+    
+    # Progress bar
     thumby.display.drawFilledRectangle(0, 0, bar_progress, 2, WHITE)
 
 # Game
