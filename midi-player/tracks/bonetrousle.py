@@ -1,6 +1,8 @@
-# GENERATED WITH compile.py
+# GENERATED WITH pico-pipes/compile.py
 
-# Order is pitch, on_at, off_at
+FILE_NAME = 'Undertale_-_Bonetrousle.mid'
+
+# Order is track, pitch, on_at, off_at
 TRACK = [
   [0, 60, 6.6, 6.67083 ],
   [0, 67, 6.8, 6.87083 ],
