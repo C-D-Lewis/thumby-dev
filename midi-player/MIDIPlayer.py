@@ -107,7 +107,7 @@ def update_playback():
         # Play next note if it's time
         freq = int(PITCH_TABLE[pitch])
         duration = int((end - start) * 1000)
-        thumby.audio.play(freq, duration)
+        thumby.audio.playBlocking(freq, duration)
         
         # Go to next note
         note_index = note_index + 1
