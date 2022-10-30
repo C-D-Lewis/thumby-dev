@@ -1,3 +1,8 @@
+# GENERATED WITH pico-pipes/compile.py
+
+FILE_NAME = 'Portal_Still-Alive_acoccimi.mid'
+
+# Order is track, pitch, on_at, off_at
 TRACK = [
   [0, 79, 1.0, 1.25 ],
   [0, 78, 1.25, 1.5 ],
