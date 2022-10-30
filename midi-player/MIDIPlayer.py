@@ -8,6 +8,7 @@ HEIGHT = thumby.display.height
 WHITE = 1
 
 TRACKS = os.listdir('/Games/MIDIPlayer/tracks')
+print(TRACKS)
 NUM_TRACKS = len(TRACKS)
 
 # Load screen
@@ -96,10 +97,11 @@ def update_playback():
     _track, pitch, start, end = TRACK[note_index]
     
     # Has next note started yet?
-    if (time.ticks_ms() - start_time >= start * 1000):
-        print(start_time, _track, pitch, start, end)
+    now = time.ticks_ms()
+    if (now - start_time >= start * 1000):
+        print(now, _track, pitch, start, end)
 
-        # Move progress bar (offset by 1 visually)
+        # Move progress bar (offset by 1 note visually)
         bar_width = int(round(WIDTH * (note_index + 1) / total_notes))
         
         # Play next note if it's time
